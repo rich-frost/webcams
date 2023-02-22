@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders main page 1`] = `
+<div>
+  <div
+    class="chakra-tabs css-0"
+  >
+    <div
+      aria-orientation="horizontal"
+      class="chakra-tabs__tablist css-k008qs"
+      role="tablist"
+    >
+      <button
+        aria-controls="tabs-:r0:--tabpanel-0"
+        aria-selected="true"
+        class="chakra-tabs__tab css-5wl5ud"
+        data-index="0"
+        id="tabs-:r0:--tab-0"
+        role="tab"
+        tabindex="0"
+        type="button"
+      >
+        spain
+      </button>
+    </div>
+    <div
+      class="chakra-tabs__tab-panels css-8atqhb"
+    >
+      <div
+        aria-labelledby="tabs-:r0:--tab-0"
+        class="chakra-tabs__tab-panel css-sjt5nk"
+        id="tabs-:r0:--tabpanel-0"
+        role="tabpanel"
+        tabindex="0"
+      >
+        <div
+          class="chakra-stack css-6vyap7"
+        >
+          <div
+            class="chakra-card css-2dlz7"
+          >
+            <div
+              class="chakra-card__header css-0"
+            >
+              <h2
+                class="chakra-heading css-0"
+              >
+                Madrid
+              </h2>
+            </div>
+            <div
+              class="chakra-card__body css-0"
+            >
+              <video
+                class="jsx-ffb02ae5ccc80a0d"
+                controls=""
+                data-displaymaxtap="true"
+                src="https://mydomain.com/madrid.vid"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
