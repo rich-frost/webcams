@@ -12,6 +12,9 @@ jobs:
                   node-version: '14.19'
             - run: node --version
             - run:
+                  command: npm ci
+                  name: Npm install
+            - run:
                   command: npm run lint
                   name: Run linter
             - run:
