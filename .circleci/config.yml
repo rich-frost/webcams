@@ -32,7 +32,7 @@ jobs:
         executor: my-executor
         steps:
             - attach_workspace:
-              at: /tmp/workspace
+                  at: /tmp/workspace
             - run:
                   command: npm run build
                   name: Build app
