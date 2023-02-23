@@ -26,13 +26,15 @@ jobs:
                   command: npm run test:ci
                   name: Run tests
             - persist_to_workspace:
-                  root: workspace
+                  root: ~/project
+                  paths:
+                      - .
 
     build:
         executor: my-executor
         steps:
             - attach_workspace:
-                  at: /tmp/workspace
+                  at: ~/project
             - run:
                   command: npm run build
                   name: Build app
