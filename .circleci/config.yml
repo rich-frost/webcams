@@ -2,10 +2,15 @@ version: 2.1
 orbs:
     node: circleci/node@5.1.0
 
-jobs:
-    lint_and_test:
+executors:
+    my-executor:
         docker:
             - image: 'cimg/base:stable'
+        working_directory: /tmp
+
+jobs:
+    lint_and_test:
+        executor: my-executor
         steps:
             - checkout
             - node/install:
@@ -20,9 +25,14 @@ jobs:
             - run:
                   command: npm run test:ci
                   name: Run tests
+            - persist_to_workspace:
+                  root: workspace
+
     build:
-        executor: node/default
+        executor: my-executor
         steps:
+            - attach_workspace:
+              at: /tmp/workspace
             - run:
                   command: npm run build
                   name: Build app
