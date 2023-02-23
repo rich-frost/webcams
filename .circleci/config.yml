@@ -6,7 +6,6 @@ executors:
     my-executor:
         docker:
             - image: 'cimg/base:stable'
-        working_directory: ~/
 
 jobs:
     lint_and_test:
