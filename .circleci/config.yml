@@ -34,6 +34,9 @@ jobs:
         steps:
             - attach_workspace:
                   at: ~/project
+            - node/install:
+                  node-version: '14.19'
+            - run: node --version
             - run:
                   command: npm run build
                   name: Build app
