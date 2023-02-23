@@ -1,0 +1,58 @@
+version: 2.1
+orbs:
+    node: circleci/node@5.1.0
+
+executors:
+    my-executor:
+        docker:
+            - image: 'cimg/base:stable'
+
+jobs:
+    lint_and_test:
+        executor: my-executor
+        steps:
+            - checkout
+            - node/install:
+                  node-version: '14.19'
+            - run: node --version
+            - run:
+                  command: npm ci
+                  name: Npm install
+            - run:
+                  command: npm run lint
+                  name: Run linter
+            - run:
+                  command: npm run test:ci
+                  name: Run tests
+            - persist_to_workspace:
+                  root: ~/project
+                  paths:
+                      - .
+
+    build:
+        executor: my-executor
+        steps:
+            - attach_workspace:
+                  at: ~/project
+            - node/install:
+                  node-version: '14.19'
+            - run: node --version
+            - run:
+                  command: npm run build
+                  name: Build app
+            - persist_to_workspace:
+                  root: ~/project
+                  paths:
+                      - .
+
+workflows:
+    test_my_app:
+        jobs:
+            - lint_and_test
+                  filters:
+                        branches:
+                              only:
+                                    - never
+            - build:
+                  requires:
+                      - lint_and_test
