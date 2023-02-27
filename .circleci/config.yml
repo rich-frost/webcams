@@ -29,11 +29,7 @@ jobs:
                   command: npm run export
                   name: Build and export app
             - aws-s3/sync:
-                  aws-access-key-id: AWS_ACCESS_KEY_ID
-                  aws-region: AWS_REGION
-                  aws-secret-access-key: AWS_SECRET_ACCESS_KEY
                   from: out
-                  to: AWS_BUCKET_ARN
 
 workflows:
     test_my_app:
