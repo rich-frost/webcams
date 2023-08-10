@@ -1,8 +1,13 @@
 export interface Video {
-    name: string;
-    source: string;
+  name: string;
+  source: string;
 }
 
-export interface VideosByCountry {
-    [country: string]: Video[];
+export interface VideosByRegion {
+  [region: string]: Video[];
+}
+
+export interface WebcamLocation {
+  name: string;
+  country: string;
 }
